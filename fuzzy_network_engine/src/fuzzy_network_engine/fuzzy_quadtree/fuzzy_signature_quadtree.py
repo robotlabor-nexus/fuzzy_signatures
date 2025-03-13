@@ -1,15 +1,11 @@
 import numpy as np
 
-from fuzzy_network_engine.naive_quadtree_example import QuadTree, QuadTreeNode, \
-    visualize_quadtree, generate_quadtree, QuadTreeElementFactory, generate_elements, QuadTreeElement
 
-from fuzzy_network_engine.membership_functions import TriMf
+from fuzzy_network_engine.fuzzy.membership_functions import TriMf
 
-from fuzzy_network_engine.fuzzy_node_elements import CylindricalExtension
 
-import matplotlib.pyplot as plt
-from scipy.ndimage import gaussian_filter
-from mpl_toolkits.mplot3d import axes3d
+from fuzzy_network_engine.quadtree.quadtree_elements import QuadTreeElement
+from fuzzy_network_engine.quadtree.quadtree_factory import QuadTreeElementFactory
 
 
 class FuzzySignatureQuadTreeElement(QuadTreeElement):
@@ -42,8 +38,6 @@ class FuzzySignatureElementFactory(QuadTreeElementFactory):
     @staticmethod
     def create_element(coordinate):
         return FuzzySignatureQuadTreeElement(coordinate)
-
-import time
 
 
 class FuzzySignatureEnvironmentRepresentation(object):
@@ -101,22 +95,6 @@ class FuzzySignatureEnvironmentRepresentation(object):
         return X, Y, infer_grid, intermediate_inference_result
 
 
-def visualize_infer_grid(X, Y, infer_grid, inference_result, X_coarse, Y_coarse, coarse_grid):
-    smooth_grid = gaussian_filter(infer_grid.T, sigma=9)
-    # Plot results
-    fig = plt.figure()
-    anim_grid = np.zeros(X.shape)
-    for sub_grid in inference_result:
-        ax = fig.add_subplot(111, projection='3d')
-        cx, cy, sum_v = sub_grid
-        anim_grid[cx[0]:cx[1], cy[0]:cy[1]] += sum_v
-        ax.plot_wireframe(X, Y, anim_grid, rstride=5, cstride=5)
-        plt.pause(0.05)
-        plt.cla()
-    #ax.plot_wireframe(X, Y, smooth_grid, rstride=5, cstride=5, color="purple")
-    ax.plot_wireframe(X_coarse, Y_coarse, coarse_grid, rstride=1, cstride=1, color="green")
-    plt.show()
-    plt.imshow(smooth_grid)
-    plt.show()
+
 
 

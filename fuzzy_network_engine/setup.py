@@ -1,6 +1,6 @@
 from setuptools import setup
 
-package_name = 'fuzzy_network_engine'
+package_name = 'src.fuzzy_network_engine'
 
 setup(
     name=package_name,

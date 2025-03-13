@@ -1,8 +1,11 @@
 import numpy as np
 
-from fuzzy_network_engine.fuzzy_signature_quadtree import generate_elements, generate_quadtree, \
-    FuzzySignatureEnvironmentRepresentation, FuzzySignatureElementFactory, \
-    visualize_quadtree, visualize_infer_grid
+from fuzzy_network_engine.fuzzy_quadtree.fuzzy_signature_quadtree import FuzzySignatureEnvironmentRepresentation, \
+    FuzzySignatureElementFactory
+from fuzzy_network_engine.fuzzy_quadtree.visualize import visualize_infer_grid
+from fuzzy_network_engine.quadtree.quadtree_factory import generate_elements
+from fuzzy_network_engine.quadtree.quadtree_node import generate_quadtree
+from fuzzy_network_engine.quadtree.quadtree_visualize import visualize_quadtree
 
 
 def viz_extreme():
@@ -49,12 +52,12 @@ def viz2():
 def viz_var_obstacle_size():
     rng = np.random.default_rng(0)
     # r_points = 100 * rng.random((10, 2)) - 50
-    r_points = np.array([[-5.0, -5.0], [5.0, -5.0], [2.0, 3.0], [-6.0, 3.0], [-1.0, -3.0]])
+    r_points = np.array([[-5.0, -5.0], [5.0, -5.0], [2.0, 3.0], [-6.0, 9.0], [-1.0, -3.0]])
     elements = generate_elements(FuzzySignatureElementFactory(), r_points)
     q_tree, intermediate_nodes, leaf_nodes = generate_quadtree(elements)
     # Infering on element
     env_repr = FuzzySignatureEnvironmentRepresentation(q_tree)
-    obstacle_dimensions = [[5.0, 7.0],
+    obstacle_dimensions = [[5.0, 11.0],
                            [12.0, 12.0],
                            [10.0, 10.0],
                            [10.0, 10.0],

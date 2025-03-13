@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-from fuzzy_network_engine.membership_functions import DescRampMf, AscRampMf, TriMf, TrapMf
+from fuzzy_network_engine.fuzzy.membership_functions import DescRampMf, AscRampMf, TriMf, TrapMf
 
 
 
@@ -12,12 +12,9 @@ def viz_desc_ramp():
     desc_ramp = DescRampMf(par)
     t = np.linspace(0, 1, 100)
     y = desc_ramp.eval(t)
-    plt.ion()
     plt.title("Descending ramp MF")
     plt.plot(t, y)
     plt.show()
-    plt.pause(1.0)
-    plt.close()
 
 
 def viz_asc_ramp():
@@ -25,12 +22,9 @@ def viz_asc_ramp():
     asc_ramp = AscRampMf(par)
     t = np.linspace(0, 1, 100)
     y = asc_ramp.eval(t)
-    plt.ion()
     plt.title("Ascending ramp MF")
     plt.plot(t, y)
     plt.show()
-    plt.pause(1.0)
-    plt.close()
 
 
 def viz_tri():
@@ -38,12 +32,9 @@ def viz_tri():
     tri = TriMf(par)
     t = np.linspace(0, 1, 100)
     y = tri.eval(t)
-    plt.ion()
     plt.title("Triangular MF")
     plt.plot(t, y)
     plt.show()
-    plt.pause(1.0)
-    plt.close()
 
 
 def viz_trapmf():
@@ -51,12 +42,9 @@ def viz_trapmf():
     trap = TrapMf(par)
     t = np.linspace(0, 1, 100)
     y = trap.eval(t)
-    plt.ion()
     plt.title("Trapezoidal MF")
     plt.plot(t, y)
     plt.show()
-    plt.pause(1.0)
-    plt.close()
 
 
 def viz_anim_trapmf():
@@ -67,14 +55,13 @@ def viz_anim_trapmf():
     plt.title("Anim Trapezoidal MF")
     ax = plt.gca()
     line = ax.plot(t, y)[0]
-    plt.ion()
     for i in range(1, 10):
         par -= 0.1
         y = trap.eval(t)
         line.set_data(t, y)
         plt.draw()
-        plt.show()
-        plt.pause(0.1)
+    plt.show()
+
 
 
 def main():

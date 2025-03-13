@@ -1,4 +1,4 @@
-from fuzzy_network_engine.membership_functions import DescRampMf, AscRampMf, TriMf, TrapMf
+from fuzzy_network_engine.fuzzy.membership_functions import DescRampMf, AscRampMf, TriMf, TrapMf
 
 import numpy as np
 

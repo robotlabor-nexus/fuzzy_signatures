@@ -1,6 +1,6 @@
 import unittest
 
-from fuzzy_network_engine.membership_functions import TriMf, AscRampMf, DescRampMf, TrapMf
+from fuzzy_network_engine.fuzzy.membership_functions import TriMf, AscRampMf, DescRampMf, TrapMf
 
 
 class TestMembershipFunctions(unittest.TestCase):

@@ -1,6 +1,10 @@
 import numpy as np
-from fuzzy_network_engine.fuzzy_signature_quadtree import  generate_quadtree, visualize_quadtree, visualize_infer_grid, \
-    generate_elements, FuzzySignatureElementFactory, FuzzySignatureEnvironmentRepresentation
+
+from fuzzy_network_engine.fuzzy_quadtree.fuzzy_signature_quadtree import FuzzySignatureElementFactory, \
+    FuzzySignatureEnvironmentRepresentation
+from fuzzy_network_engine.fuzzy_quadtree.visualize import visualize_infer_grid
+from fuzzy_network_engine.quadtree.quadtree_factory import generate_elements
+from fuzzy_network_engine.quadtree.quadtree_node import generate_quadtree
 
 
 def viz_var_obstacle_size():
@@ -93,9 +97,9 @@ def viz_var_obstacle_size_5x7():
 
 def main():
     #viz_var_obstacle_size()
-    #viz_var_obstacle_size_40x40()
-    viz_var_obstacle_size_5x5()
-    viz_var_obstacle_size_5x7()
+    viz_var_obstacle_size_40x40()
+    #viz_var_obstacle_size_5x5()
+    #viz_var_obstacle_size_5x7()
 
 
 if __name__=="__main__":

@@ -1,9 +1,9 @@
 import matplotlib.pyplot as plt
 
-from fuzzy_network_engine.fuzzy_node import FuzzyNode
-from fuzzy_network_engine.fuzzy_node_elements import Activation, ConsequentActivation, FuzzyRule
-from fuzzy_network_engine.membership_functions import DescRampMf, TrapMf, AscRampMf, TriMf
-from fuzzy_network_engine.norm import sum_s_norm
+from fuzzy_network_engine.fuzzy_quadtree.fuzzy_node import FuzzyNode
+from fuzzy_network_engine.fuzzy_quadtree.fuzzy_node_elements import Activation, ConsequentActivation, FuzzyRule
+from fuzzy_network_engine.fuzzy.membership_functions import DescRampMf, TrapMf, AscRampMf, TriMf
+from fuzzy_network_engine.fuzzy.norm import sum_s_norm
 
 import numpy as np
 

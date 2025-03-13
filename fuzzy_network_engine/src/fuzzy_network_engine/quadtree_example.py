@@ -1,11 +1,11 @@
 import numpy as np
 
-from fuzzy_network_engine.fuzzy_node import FuzzyNode
+from fuzzy_network_engine.fuzzy_quadtree.fuzzy_node import FuzzyNode
 
 import matplotlib.pyplot as plt
 
-from fuzzy_network_engine.fuzzy_node_elements import Activation
-from fuzzy_network_engine.membership_functions import TrapMf
+from fuzzy_network_engine.fuzzy_quadtree.fuzzy_node_elements import Activation
+from fuzzy_network_engine.fuzzy.membership_functions import TrapMf
 
 
 def main():
@@ -16,8 +16,8 @@ def main():
         "mf_down":  np.array([-0.2,  0.1])
     }
     node_placer = FuzzyNode(hyperparameters)
-    mf_right = TrapMf(hyperparameters["right"])
-    mf_left  = TrapMf(hyperparameters["left"])
+    mf_right = TrapMf(hyperparameters["mf_right"])
+    mf_left  = TrapMf(hyperparameters["mf_left"])
     mf_up    = TrapMf(hyperparameters["mf_up"])
     mf_down  = TrapMf(hyperparameters["mf_down"])
     # Position placements
